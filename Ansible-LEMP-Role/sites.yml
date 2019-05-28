@@ -1,0 +1,10 @@
+---
+- name: configuring LAMP
+  hosts: webserver
+  remote_user: ubuntu
+  become: yes
+
+  roles:
+      - laravel-deployment
+
+

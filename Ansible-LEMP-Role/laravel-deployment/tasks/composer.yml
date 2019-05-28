@@ -1,0 +1,17 @@
+---
+- name: install composer
+  apt: name=composer state=present
+
+- name: change dir and install laravel
+  shell: command=curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+- name: permission
+  file: path=/var/www/html owner=ubuntu group=root
+
+- name: compser install
+  command: composer install chdir=/var/www/html
+  become: sudo
+
+- name: install laravel
+  command: composer create-project laravel/laravel MyProject --prefer-dist chdir=/var/www/html
+  become: sudo

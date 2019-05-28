@@ -1,0 +1,13 @@
+---
+- name: install php 
+  apt: name={{ item }} state=present
+  with_items:
+          - php
+          - php-mysql
+          - php-fpm
+          - php-mbstring
+          - php-curl
+          - php-cli
+          - php-gd
+          - php-json
+          

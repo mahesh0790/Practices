@@ -1,0 +1,22 @@
+version: '3'
+services:
+        web:
+         image: "nginx"
+         volumes:
+           - laravel.conf/:/etc/nginx/sites-available/
+         ports:
+           - "8060:80"
+         command: ln -s /etc/nginx/sites-available/laravel.conf /etc/nginx/sites-enabled/  
+         command: service nginx restart  
+        php:
+         image: .
+        mysqll: 
+          image: "mysql:5.7.26"
+          depends_on:
+          - web
+          environment:
+           MYSQL_ROOT_PASSWORD: Newmahesh@44
+        
+
+         
+         

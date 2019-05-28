@@ -1,0 +1,8 @@
+---
+- name: install java
+  hosts: appserver
+  remote_user: ubuntu
+  become: yes
+
+  roles:
+    - java-stack-tomcat

@@ -1,0 +1,12 @@
+---
+- name: Downloading the tomcat
+  get_url: url=http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.19/bin/apache-tomcat-9.0.19.tar.gz dest=/opt
+
+- name: extracting the tomcat
+  unarchive: src=/opt/apache-tomcat-9.0.19.tar.gz dest=/opt remote_src=yes
+
+- name: creating group
+  group: name=tomcat
+
+- name: creating user and assign the group
+  user: name=tomcat group=tomcat home=/opt/apache-tomcat-9.0.19

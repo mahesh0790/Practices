@@ -1,5 +1,6 @@
 FROM ubuntu
+LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
 RUN apt-get update
 RUN apt-get install -y nginx
-ENTRYPOINT ["/usr/sbin/nginx" , "-g" , "daemon off;"]
 EXPOSE 80
+CMD ["nginx","-g","daemon off;"]
